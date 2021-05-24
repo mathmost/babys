@@ -10,9 +10,8 @@
         layui.config({
             base: '{% static 'js/' %}'
         }).use(['mm', 'carousel'], function () {
-            var carousel = layui.carousel,
-                mm = layui.mm;
-            var option = {
+            let carousel = layui.carousel, mm = layui.mm;
+            let option = {
                 elem: '#test1'
                 , width: '100%'
                 , arrow: 'always'
