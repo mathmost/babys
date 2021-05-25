@@ -13,6 +13,7 @@ from .form import *
 # from .pays_new import get_pay
 import time
 
+
 # def loginView(request):
 #     title = '用户登录'
 #     classContent = 'logins'
@@ -106,6 +107,7 @@ def shopperView(request):
         pages = paginator.page(paginator.num_pages)
     return render(request, 'shopper.html', locals())
 
+
 def logoutView(request):
     # 使用内置函数logout退出用户登录状态
     logout(request)
@@ -128,6 +130,7 @@ def shopcartView(request):
     commodityInfos = CommodityInfos.objects.filter(id__in=commodityDcit.keys())
     return render(request, 'shopcart.html', locals())
 
+
 def deleteAPI(request):
     result = {'state': 'success'}
     userId = request.GET.get('userId', '')
@@ -139,7 +142,6 @@ def deleteAPI(request):
     else:
         result = {'state': 'fail'}
     return JsonResponse(result)
-
 
 # def paysView(request):
 #     total = request.GET.get('total', 0)
