@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from commodity.models import *
+
+
 # Create your views here.
 def indexView(request):
     title = '首页'
@@ -19,9 +21,10 @@ def indexView(request):
     return render(request, 'index.html', locals())
 
 
-
 from django.views.generic.base import TemplateView
 from commodity.models import *
+
+
 class indexClassView(TemplateView):
     template_name = 'index.html'
     template_engine = None
@@ -53,8 +56,8 @@ class indexClassView(TemplateView):
         return self.render_to_response(context)
 
     # 定义HTTP的POST请求处理方法
-	# 参数request代表HTTP请求信息
-	# 若路由设有路由变量，则可从参数kwargs里获取
+    # 参数request代表HTTP请求信息
+    # 若路由设有路由变量，则可从参数kwargs里获取
     def post(self, request, *args, **kwargs):
         pass
         context = self.get_context_data(**kwargs)
@@ -63,6 +66,7 @@ class indexClassView(TemplateView):
 
 def page_not_found(request, exception):
     return render(request, '404.html', status=404)
+
 
 def page_error(request):
     return render(request, '404.html', status=500)
